@@ -1,0 +1,12 @@
+{
+  "code": "default-stocks",
+  "name": "Default HQ",
+  "employees": [
+    {
+      "userId": "sadmin",
+      "password": "1234",
+      "firstName": "Super",
+      "roleId": "Admin"
+    }
+  ]
+}

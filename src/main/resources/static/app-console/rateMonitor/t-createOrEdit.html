@@ -1,0 +1,83 @@
+<md-content class="md-padding" ng-show="vm.uiState.isReady">
+
+    <form name="form0">
+        <div layout="column" layout-gt-xs="row">
+            <md-input-container flex-gt-xs="50">
+                <label>* Code</label>
+                <input type="text" name="rateMonitorCode"
+                       wyd-focus-on="rateMonitorCode"
+                       ng-model="vm.model.code"
+                       ng-required="true"
+                       minlength="3" maxlength="20"/>
+                <div ng-messages="form0.rateMonitorCode.$error" role="alert">
+                    <div ng-message="required">
+                        This is required.
+                    </div>
+                    <div ng-message="minlength, maxlength">
+                        This should be between 3 and 20 characters long
+                    </div>
+                </div>
+            </md-input-container>
+            <md-input-container flex-gt-xs="50">
+                <label>* Name</label>
+                <input type="text" name="rateMonitorName"
+                       wyd-focus-on="rateMonitorName"
+                       ng-model="vm.model.name"
+                       minlength="5" maxlength="50"/>
+                <div ng-messages="form0.rateMonitorName.$error" role="alert">
+                    <div ng-message="required">
+                        This is required.
+                    </div>
+                    <div ng-message="rateMonitorName, maxlength">
+                        This should be between 5 and 50 characters long
+                    </div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="column" layout-gt-xs="row">
+            <md-input-container flex-gt-xs="50">
+                <label>* Lower Value</label>
+                <input type="text" name="rateMonitorLowerValue"
+                       wyd-focus-on="rateMonitorLowerValue"
+                       ng-change="vm.onLowerValue()"
+                       ng-model="vm.model.lowerValueS"
+                       input-mask="'decimal'"
+                       mask-option="{ allowMinus : false, 'groupSeparator' : ',', 'autoGroup': true, 'digits' : 2 }"/>
+                <div ng-messages="form0.rateMonitorLowerValue.$error" role="alert">
+                    <div ng-message="required">
+                        This is required.
+                    </div>
+                </div>
+            </md-input-container>
+            <md-input-container flex-gt-xs="50">
+                <label>* Upper Value</label>
+                <input type="text" name="rateMonitorUpperValue"
+                       wyd-focus-on="rateMonitorUpperValue"
+                       ng-change="vm.onUpperValue()"
+                       ng-model="vm.model.upperValueS"
+                       input-mask="'decimal'"
+                       mask-option="{ allowMinus : false, 'groupSeparator' : ',', 'autoGroup': true, 'digits' : 2 }"/>
+                <div ng-messages="form0.rateMonitorUpperValue.$error" role="alert">
+                    <div ng-message="required">
+                        This is required.
+                    </div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="">
+            <md-button class="md-raised" ng-click="historyBack()">
+                <md-icon>cancel</md-icon>
+                Cancel
+            </md-button>
+            <div flex></div>
+            <md-button class="md-raised md-primary"
+                       ng-disabled="vm.uiState.isBlocked"
+                       ng-click="vm.save()">
+                <md-icon>save</md-icon>
+                Save
+            </md-button>
+        </div>
+    </form>
+
+</md-content>
+

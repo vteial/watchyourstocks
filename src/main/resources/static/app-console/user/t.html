@@ -1,0 +1,41 @@
+<br/>
+<div class="row">
+    <button class="btn btn-empty btn-sm btn-light float-left"
+            ng-click="vm.reload()">
+        <i class="fa fa-refresh fa-lg"></i>
+    </button>
+    &nbsp;
+    <a class="btn btn-empty btn-sm float-right" href="#/users/user">
+        <i class="fa fa-plus fa-lg"></i>
+    </a>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th width="40" class="text-right">#</th>
+        <th>User Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Status</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in vm.searchHolder.items">
+        <td class="text-right">{{ ($index+1) }}</td>
+        <td><a href="#/users/user/{{item.id}}">{{ item.userId }}</a></td>
+        <td>{{ lodash.capitalize(item.firstName) }}</td>
+        <td>{{ lodash.capitalize(item.lastName) }}</td>
+        <td>{{ lodash.capitalize(item.status) }}</td>
+        <td class="text-center">
+            <a ng-href="#/users/user/{{item.id}}/surveys">Surveys</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div ng-show="{{searchHolder.hasMoreItems}}" class="text-center">
+    <button class="btn btn-empty btn-sm btn-light" ng-click="vm.loadMore()">Load More...</button>
+</div>
+

@@ -1,0 +1,30 @@
+{
+  "code": "wybis-stocks",
+  "name": "Wybis HQ",
+  "employees": [
+    {
+      "userId": "vteial",
+      "password": "wybis1234",
+      "firstName": "Eialarasu",
+      "roleId": "manager"
+    },
+    {
+      "userId": "donkhan",
+      "password": "wybis1234",
+      "firstName": "Kamil",
+      "roleId": "manager"
+    },
+    {
+      "userId": "vrsumitha",
+      "password": "wybis1234",
+      "firstName": "Sumitha",
+      "roleId": "teller"
+    },
+    {
+      "userId": "ksaraswathi",
+      "password": "wybis1234",
+      "firstName": "Saraswathi",
+      "roleId": "teller"
+    }
+  ]
+}

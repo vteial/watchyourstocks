@@ -1,0 +1,28 @@
+<br/>
+
+<div class="row">
+    <div class="col md-4">&nbsp;</div>
+    <div class="col md-4">
+        <div>
+            <label for="userId">User Id</label>
+            <input class="form-control" id="userId" type="text"
+                   wyd-focus-on="signInUserUserId"
+                   ng-model="vm.user.userId"
+                   ng-keyup="vm.processKeyUp()"/>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input class="form-control" id="password" type="password"
+                   ng-model="vm.user.password"
+                   ng-keyup="vm.processKeyUp()"/>
+        </div>
+        <div class="text-center">
+            <button class="btn"
+                    ng-disabled="vm.isBlocked"
+                    ng-click="vm.signIn()">
+                Sign In</button>
+        </div>
+    </div>
+    <div class="col md-4">&nbsp;</div>
+</div>
+

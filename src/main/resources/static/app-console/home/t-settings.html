@@ -1,0 +1,40 @@
+<br/>
+
+<div class="row">
+    <div class="col md-6">
+        <div class="row">
+            <div class="col md-8">
+                <label>Application Name</label>
+                <input class="form-control" type="text" ng-model="vm.applicationName">
+            </div>
+            <div class="col md-4">
+                <br/>
+                <button class="btn btn-success btn-empty btn-sm"
+                    ng-disabled="vm.isBlocked"
+                    ng-click="vm.saveApplicationName()">
+                    Save
+                </button>
+            </div>
+         </div>
+         <div class="row">
+             <div class="col md-8">
+                 <label>Is White Labeled?</label>
+                 <select class="form-control" ng-model="vm.isWhiteLabeled">
+                     <option value="no">No</option>
+                     <option value="yes">Yes</option>
+                 </select>
+             </div>
+             <div class="col md-4">
+                 <br/>
+                 <button class="btn btn-success btn-empty btn-sm"
+                     ng-disabled="vm.isBlocked"
+                     ng-click="vm.saveIsWhiteLabeled()">
+                     Save
+                 </button>
+             </div>
+         <div>
+    </div>
+    <div class="col md-6">
+        &nbsp;
+    </div>
+</div>
