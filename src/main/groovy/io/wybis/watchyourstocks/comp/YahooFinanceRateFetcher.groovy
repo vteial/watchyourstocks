@@ -17,28 +17,45 @@ import javax.annotation.Resource
 @Canonical
 class YahooFinanceRateFetcher extends RateFetcher {
 
+    static void main(def args) {
+        println('started...')
+        YahooFinanceRateFetcher rateFetcher = new YahooFinanceRateFetcher()
+        rateFetcher.restTemplate = new RestTemplate()
+        rateFetcher.code = 'BIOCON.NS'
+        ProductRate rateInfo = rateFetcher.fetch()
+        println('finished...')
+    }
+
     @Resource
     RestTemplate restTemplate
 
     @Override
     ProductRate fetch() {
-        ProductRate model = super.fetch()
-        model.providedBy = 'in.finance.yahoo.com'
+        ProductRate model = null
+        try {
+            model = super.fetch()
+            model.providedBy = 'in.finance.yahoo.com'
 
-        String s = 'https://in.finance.yahoo.com/q?s=' + code.toUpperCase() + '&ql=0'
-        ResponseEntity<String> res = restTemplate.getForEntity(s, String.class);
-        if (res.statusCode == 200) {
-            Document doc = Jsoup.parse(res.body)
-            Element ele = doc.getElementById("yfs_l84_${code.toLowerCase()}");
-            try {
-                model.value = Double.parseDouble(ele.text())
+            // https://in.finance.yahoo.com/quote/BIOCON.NS?ltr=1
+            String s = 'https://in.finance.yahoo.com/quote/' + code.toUpperCase() + '?ltr=1'
+            log.debug('url for the stock {} is {}', code, s)
+            ResponseEntity<String> res = restTemplate.getForEntity(s, String.class);
+            if (res.statusCode.value() == 200) {
+                Document doc = Jsoup.parse(res.body)
+                Element ele = doc.getElementsByAttributeValue('data-reactid', '247').first()
+                try {
+                    model.value = Double.parseDouble(ele.text().replace(',', ''))
+                }
+                catch (NumberFormatException nfe) {
+                    log.error("rate fetching failed for stock ${code}", nfe)
+                }
+            } else {
+                log.warn('rate fetching failed for the stock {} because it returns with status {}', code, res.statusCode.value())
             }
-            catch (NumberFormatException nfe) {
-                nfe.printStackTrace()
-            }
+            model.fetchTime = new Date()
+        } catch(Throwable t) {
+            log.error("rate fetching failed for stock ${code}", t)
         }
-        model.fetchTime = new Date()
-
         return model
     }
 

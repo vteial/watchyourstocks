@@ -23,7 +23,7 @@
 	<logger name="org.springframework.web" level="DEBUG"/>
 	-->
 
-	<logger name="io.wybis.watchyourstocks" level="INFO" additivity="false">
+	<logger name="io.wybis.watchyourstocks" level="DEBUG" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 

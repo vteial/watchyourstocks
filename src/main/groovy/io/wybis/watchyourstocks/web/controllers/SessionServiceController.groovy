@@ -84,10 +84,15 @@ public class SessionServiceController extends AbstractController {
     ResponseDto rateMonitorNow(HttpSession session) {
         ResponseDto responseDto = new ResponseDto();
 
-        rateMonitorService.monitorRates();
+        if(rateMonitorService.isMonitorRatesRunning()) {
+            responseDto.setType(ResponseDto.WARNING);
+            responseDto.setMessage("Rate monitor already running...");
 
-        responseDto.setType(ResponseDto.SUCCESS);
-        responseDto.setMessage("Successfully rate monitor started...");
+        } else {
+            rateMonitorService.monitorRates();
+            responseDto.setType(ResponseDto.SUCCESS);
+            responseDto.setMessage("Successfully rate monitor started...");
+        }
 
         return responseDto;
     }

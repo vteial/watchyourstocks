@@ -29,6 +29,9 @@ function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, s
         var path = '/sessions/rate-monitor-now';
         $http.get(path).success(function (response) {
             $log.debug(response);
+            if(response.type != 0) {
+                wydNotifyService.showError(response.message);
+            }
         });
         $log.debug('/sessions/rate-monitor-now call finished...');
     }

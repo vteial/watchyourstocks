@@ -4,5 +4,8 @@ interface RateMonitorService {
 
     void init();
 
+    boolean isMonitorRatesRunning()
+
     void monitorRates()
+
 }

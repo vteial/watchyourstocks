@@ -2,5 +2,5 @@
 spring :
 
   datasource :
-    jndi-name : java:comp/env/jdbc/watchyourstocks
+    #jndi-name : java:comp/env/jdbc/watchyourstocks
     #url : jdbc:h2:tcp://localhost/~/app-home/watchyourstocks/h2
