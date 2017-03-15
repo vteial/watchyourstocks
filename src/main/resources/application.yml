@@ -39,7 +39,7 @@ spring :
     driverClassName: org.h2.Driver
     username : sa
     password :
-    url : jdbc:h2:mem
+    url : jdbc:h2:mem:wys
 
   h2:
     console:

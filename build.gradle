@@ -35,6 +35,7 @@ springBoot {
                 machine              : InetAddress.localHost.hostName
         ]
     }
+    executable = true
 }
 
 gitProperties {
@@ -59,7 +60,7 @@ dependencies {
     compile('joda-time:joda-time')
 
     compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-actuator-docs')
+//    compile('org.springframework.boot:spring-boot-actuator-docs')
 //    compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-mail')
     compile('org.springframework.boot:spring-boot-starter-jdbc')
@@ -83,9 +84,9 @@ dependencies {
     runtime('com.zaxxer:HikariCP:2.4.5')
     runtime('org.springframework.boot:spring-boot-devtools')
 
-    //providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-    //providedRuntime('org.springframework.boot:spring-boot-starter-jetty')
-    providedRuntime('org.springframework.boot:spring-boot-starter-undertow')
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+//    providedRuntime('org.springframework.boot:spring-boot-starter-jetty')
+//    providedRuntime('org.springframework.boot:spring-boot-starter-undertow')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4')
@@ -131,4 +132,22 @@ task syncBower(type: Sync) {
     into 'src/main/resources/static/modules_bower'
 
     includeEmptyDirs = false
+}
+
+task deployLocal << {
+    copy {
+        from 'build/libs'
+        into 'temp/tomcat/webapps'
+        include '*.original'
+        rename(/watchyourstocks-.*.original/, 'watchyourstocks.war')
+    }
+}
+
+task undeployLocal << {
+    copy {
+        from 'build/libs'
+        into 'temp/tomcat/webapps'
+        include '*.original'
+        rename(/watchyourstocks-.*.original/, 'watchyourstocks.war')
+    }
 }
