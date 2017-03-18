@@ -11,7 +11,7 @@
     <span class="pull-right">
         <a class="btn btn-empty btn-sm"
            ng-href="#/rate-monitors/rate-monitor">
-            Add
+            <i class="fa fa-plus fa-lg"></i> Add
         </a>
     </span>
 </div>
@@ -19,16 +19,21 @@
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
-        <th><small>#</small></th>
+        <th width="40"><small>#</small></th>
         <th><small>Name</small></th>
         <th><small>YF</small></th>
+        <!--
         <th><small>Code</small></th>
+        -->
         <th><small>L Value</small></th>
         <th><small>U Value</small></th>
         <th><small>Value</small></th>
         <th><small>Met Time</small></th>
+        <!--
         <th><small>Status</small></th>
+        -->
         <th><small>Update Time</small></th>
+        <th width="40"><small>&nbsp;</small></th>
     </tr>
     </thead>
     <tbody>
@@ -36,13 +41,18 @@
         <td class="text-right">{{$index+1}}</td>
         <td><a ng-href="#/rate-monitors/rate-monitor/{{item.$id}}">{{item.name}}</a></td>
         <td><a ng-href="https://in.finance.yahoo.com/q?s={{lodash.toUpper(item.code)}}&ql=0" target="_blank">YF</a></td>
+        <!--
         <td>{{item.code}}</td>
+        -->
         <td class="text-right">{{item.lowerValue | number : 2}}</td>
         <td class="text-right">{{item.upperValue | number : 2}}</td>
         <td class="text-right">{{item.value | number : 2}}</td>
         <td>{{item.metTime | date : 'yyyy-MM-dd HH:mm:ss Z'}}</td>
+        <!--
         <td>{{item.status}}</td>
+        -->
         <td>{{item.updateTime | date : 'yyyy-MM-dd HH:mm:ss Z'}}</td>
+        <td><button class="btn btn-small btn-error" ng-click="vm.remove(item)"><i class="fa fa-trash fa-sm"></i></button></td>
     </tr>
     </tbody>
 </table>

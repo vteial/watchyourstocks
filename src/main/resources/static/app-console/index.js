@@ -12,6 +12,9 @@ function rootController($log, $rootScope, $scope, sessionService, $window) {
 
     $scope.$on('session:properties', function (event, data) {
         $log.debug(cmpId + ' on ' + event.name + ' started...');
+        swetAlerat('Invalid Session!',
+            'Your session is invalid. Please sign in and continue.',
+            'question');
         $log.debug(cmpId + ' on ' + event.name + ' finished...');
     });
 
@@ -35,9 +38,9 @@ dependents.push('app.services');
 dependents.push('app.controllers');
 var app = angular.module('app', dependents), lodash = _;
 
-// app.config(function ($httpProvider) {
-//     $httpProvider.interceptors.push('generalHttpInterceptor');
-// });
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('generalHttpInterceptor');
+});
 
 function appConfig($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
@@ -52,6 +55,10 @@ function appConfig($routeProvider, $locationProvider) {
         controller: 'rateMonitorListController as vm'
     });
     $routeProvider.when('/rate-monitors/rate-monitor', {
+        templateUrl: 'app-console/rateMonitor/t-createOrEdit.html',
+        controller: 'rateMonitorAddOrEditController as vm'
+    });
+    $routeProvider.when('/rate-monitors/rate-monitor/:id', {
         templateUrl: 'app-console/rateMonitor/t-createOrEdit.html',
         controller: 'rateMonitorAddOrEditController as vm'
     });

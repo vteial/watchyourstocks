@@ -21,10 +21,10 @@ public class AutoNumber extends AbstractModel {
     @Column(name = 'id')
     String id
 
-    // common fields...
     @Column(name = 'val', nullable = false)
     long value
 
+    // common fields...
     @Column(name = 'create_time', nullable = false)
     Date createTime
 

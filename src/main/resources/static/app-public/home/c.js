@@ -33,7 +33,7 @@ function signInController($log, $rootScope, $scope, wydNotifyService, wydFocusSe
         vm.message = null;
 
         vm.isBlocked = true;
-        var path = '/sessions/sign-in';
+        var path = 'sessions/sign-in';
         $http.post(path, vm.user).success(function (response) {
             vm.isBlocked = false;
             $log.info(response);

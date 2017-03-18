@@ -1,3 +1,8 @@
+
+rateMonitorService :
+  cron : 0 */5 9-16 * * MON-FRI
+
+
 info :
   app :
     name : watchyourstocks
@@ -9,6 +14,7 @@ info :
 
 server :
   port : 9021
+  context-path : /watchyourstocks
   #sessionTimeout : 30
 
 #management :

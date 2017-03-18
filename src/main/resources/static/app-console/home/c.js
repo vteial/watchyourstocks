@@ -100,7 +100,7 @@ function signOutController($rootScope, $log, $http, $window, $timeout) {
     vm.isBlocked = false;
 
     $timeout(function() {
-        $window.location = '/index.html';
+        $window.location = 'index.html';
     }, 1000);
 
     // var path = 'sessions/sign-out';

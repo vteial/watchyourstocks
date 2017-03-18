@@ -58,7 +58,7 @@ class DefaultRateMonitorService extends AbstractService implements RateMonitorSe
         return flag
     }
 
-    @Scheduled(cron = "0 */5 9-16 * * MON-FRI")
+    @Scheduled(cron = '${rateMonitorService.cron}')
     @Override
     void monitorRates() {
         log.info('rate monitor started')

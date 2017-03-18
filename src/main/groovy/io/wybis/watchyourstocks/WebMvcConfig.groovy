@@ -1,18 +1,25 @@
 package io.wybis.watchyourstocks
 
+import io.wybis.watchyourstocks.web.interceptors.SecurityCheckInterceptor
 import org.springframework.context.annotation.Configuration
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//
-//        SecurityCheckInterceptor si = new SecurityCheckInterceptor();
-//        registry.addInterceptor(si).addPathPatterns("/**");
-//
-//        super.addInterceptors(registry);
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        SecurityCheckInterceptor si = new SecurityCheckInterceptor();
+        registry.addInterceptor(si).addPathPatterns("/**");
+
+        super.addInterceptors(registry);
+    }
+//    @Bean
+//    SimpleTemplateEngine simpleTemplateEngine() {
+//        SimpleTemplateEngine ste = new SimpleTemplateEngine();
+//        return ste;
 //    }
 
 //    @Bean

@@ -1,4 +1,4 @@
-function sessionService($log, $http, $q, $rootScope, wydNotifyService) {
+function sessionService($log, $http, $q, $rootScope, wydNotifyService, $firebaseArray) {
     var basePathS = 'sessions', basePathC = 'console';
 
     var service = {
@@ -48,6 +48,24 @@ function sessionService($log, $http, $q, $rootScope, wydNotifyService) {
             objectsMap[objectx.id] = objectx;
         }
     }
+
+    // var rateMonitorsRef = null, rateMonitors = null;
+    //
+    // service.rateMonitorsRef = function() {
+    //     if(rateMonitorsRef == null) {
+    //         var ref = firebase.database().ref();
+    //         rateMonitorsRef = ref.child('rateMonitorsDev');
+    //     }
+    //     return rateMonitorsRef;
+    // };
+    //
+    // service.rateMonitors = function() {
+    //     if(rateMonitors == null) {
+    //         var ref = service.rateMonitorsRef();
+    //         rateMonitors = $firebaseArray(ref);
+    //     }
+    //     return rateMonitors;
+    // };
 
     return service;
 }

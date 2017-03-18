@@ -25,22 +25,31 @@ function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, s
     // };
 
     function callRateMonitor() {
-        $log.debug('/sessions/rate-monitor-now call started...');
-        var path = '/sessions/rate-monitor-now';
+        $log.debug('sessions/rate-monitor-now call started...');
+        var path = 'sessions/rate-monitor-now';
         $http.get(path).success(function (response) {
             $log.debug(response);
-            if(response.type != 0) {
+            if (response.type != 0) {
                 wydNotifyService.showError(response.message);
             }
         });
-        $log.debug('/sessions/rate-monitor-now call finished...');
+        $log.debug('sessions/rate-monitor-now call finished...');
     }
+
     vm.checkNow = callRateMonitor;
 
     vm.remove = function (model) {
-        $scope.items.$remove(model).then(function (ref) {
-            $log.debug(ref.key + ' == ' + model.$id);
-            wydNotifyService.showSuccess(model.code + ' successfully deleted...');
+        sweetAlert({
+            title: 'Are you sure delete?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true
+        }).then(function () {
+            $scope.items.$remove(model).then(function (ref) {
+                wydNotifyService.showSuccess(model.code + ' successfully deleted...');
+            });
+        }, function (dismiss) {
+            $log.debug(model.code + ' delete request cancelled...');
         });
     };
 
@@ -109,14 +118,15 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
 
         vm.uiState.isBlocked = true;
         if (vm.model.id == 0) {
-            var path = '/sessions/next-auto-number/rateMonitorId';
+            var path = 'sessions/next-auto-number/rateMonitorId';
             $http.get(path).success(function (response) {
                 $log.debug(response);
 
-                vm.model.id = response.data;
+                vm.model.id = response.data.value;
                 var now = (new Date()).getTime();
                 vm.model.createTime = now;
                 vm.model.updateTime = now;
+                $log.info(vm.model);
 
                 var modelsRef = rateMonitors.$ref();
                 modelsRef.child('' + vm.model.id).set(vm.model).then(function () {
@@ -126,11 +136,11 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
                     wydNotifyService.showError(vm.model.code + ' update failed...');
                     $log.error(error);
                 });
+
             });
         } else {
             var now = (new Date()).getTime();
             vm.model.updateTime = now;
-            console.log(vm.model);
             rateMonitors.$save(vm.model).then(function (ref) {
                 $log.debug(ref.key + ' == ' + vm.model.$id)
                 wydNotifyService.showSuccess(vm.model.code + ' successfully updated...');
@@ -140,6 +150,22 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
                 $log.error(error);
             });
         }
+    };
+
+    vm.remove = function (model) {
+        sweetAlert({
+            title: 'Are you sure delete?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true
+        }).then(function () {
+            rateMonitors.$remove(model).then(function (ref) {
+                wydNotifyService.showSuccess(model.code + ' successfully deleted...');
+                $location.path('/rate-monitors');
+            });
+        }, function (dismiss) {
+            $log.debug(model.code + ' delete request cancelled...');
+        });
     };
 
     function init() {

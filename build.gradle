@@ -23,7 +23,7 @@ apply plugin: 'com.gorylenko.gradle-git-properties'
 
 war {
     baseName = 'watchyourstocks'
-    version = '1.0.0'
+    version = ''
 }
 
 springBoot {
@@ -148,6 +148,6 @@ task undeployLocal << {
         from 'build/libs'
         into 'temp/tomcat/webapps'
         include '*.original'
-        rename(/watchyourstocks-.*.original/, 'watchyourstocks.war')
+        rename(/watchyourstocks.war.original/, 'watchyourstocks.war')
     }
 }
