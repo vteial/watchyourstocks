@@ -2,8 +2,8 @@
 rateMonitorService :
   cron : 0 */5 4-11 * * MON-FRI
 
-spring :
-
-  datasource :
-    #jndi-name : java:comp/env/jdbc/watchyourstocks
-    #url : jdbc:h2:tcp://localhost/~/app-home/watchyourstocks/h2
+#spring :
+#
+#  datasource :
+#    jndi-name : java:comp/env/jdbc/watchyourstocks
+#    url : jdbc:h2:tcp://localhost/~/app-home/watchyourstocks/h2

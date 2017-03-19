@@ -12,6 +12,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
 
         SecurityCheckInterceptor si = new SecurityCheckInterceptor();
+        si.init()
         registry.addInterceptor(si).addPathPatterns("/**");
 
         super.addInterceptors(registry);

@@ -7,14 +7,14 @@ info :
   app :
     name : watchyourstocks
     description : Watch Your Stocks
-    version : 1.0.0
+    version : 1.0.1
 
   profiles :
     active : prd
 
 server :
   port : 9021
-  context-path : /watchyourstocks
+  #context-path : /watchyourstocks
   #sessionTimeout : 30
 
 #management :

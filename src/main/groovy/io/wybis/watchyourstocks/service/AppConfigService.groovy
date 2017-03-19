@@ -4,5 +4,10 @@ import javax.servlet.ServletContext
 
 interface AppConfigService {
 
-    void init(ServletContext application)
+    void init()
+
+    String getConfigProperty(String key);
+
+    void setConfigProperty(String key, String value);
+
 }

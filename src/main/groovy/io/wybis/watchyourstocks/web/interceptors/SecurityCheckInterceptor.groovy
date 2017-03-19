@@ -18,8 +18,8 @@ class SecurityCheckInterceptor extends HandlerInterceptorAdapter {
 
     List<String> pubRegexPaths = [], pvtRegexPaths = []
 
-    @PostConstruct
     public void init() {
+
         pubExactPaths['/sessions/properties'] = true
         pubExactPaths['/sessions/sign-in'] = true
         pubExactPaths['/sessions/sign-out'] = true
@@ -42,15 +42,16 @@ class SecurityCheckInterceptor extends HandlerInterceptorAdapter {
         if (request.getRequestURI().contains(".")) {
             return super.preHandle(request, response, handler)
         }
-        //System.out.println("0 - ${request.requestURI}")
+        log.debug('0 - {}', request.requestURI)
         if (!request.requestURI.startsWith('/sessions/')) {
             return super.preHandle(request, response, handler)
         }
-        //System.out.println("1 - ${request.requestURI}")
+        log.debug('1 - {}', request.requestURI)
+        log.debug('1 - {}', pubExactPaths[request.requestURI])
         if (pubExactPaths[request.requestURI] || this.isReqPathExistsIn(this.pubRegexPaths, request.requestURI)) {
             return super.preHandle(request, response, handler)
         }
-        //System.out.println("2 - ${request.requestURI}")
+        log.debug('2 - {}', request.requestURI)
         HttpSession session = request.session
         SessionDto sessionUser = (SessionDto) session.getAttribute(SessionService.SESSION_USER_KEY)
         if (sessionUser == null && this.isReqPathExistsIn(this.pvtRegexPaths, request.requestURI)) {
@@ -58,24 +59,24 @@ class SecurityCheckInterceptor extends HandlerInterceptorAdapter {
             response.sendRedirect('/index.html#/sign-in')
             return;
         }
-        //System.out.println("3 - ${request.requestURI}")
+        log.debug('3 - {}', request.requestURI)
         if (sessionUser != null && this.isReqPathExistsIn(this.pvtRegexPaths, request.requestURI)) {
             session.setAttribute(SessionService.SESSION_LOGIN_REDIRECT_KEY, request.requestURI)
             response.sendRedirect('/home.html#/' + request.requestURI.substring(10))
             return;
         }
-        //System.out.println("4 - ${request.requestURI}")
+        log.debug('4 - {}', request.requestURI)
         if (sessionUser == null) {
             response.sendError(419);
             return;
         }
-        //System.out.println("4 - ${request.requestURI}")
+        log.debug('5 - {}', request.requestURI)
         String arrivedUserId = request.getHeader('X-UserId')
         if (arrivedUserId != 'null' && sessionUser.userId != arrivedUserId) {
             response.sendError(419);
             return;
         }
-        //System.out.println("5 - ${request.requestURI}")
+        log.debug('6 - {}', request.requestURI)
 
         return super.preHandle(request, response, handler)
     }
@@ -103,7 +104,7 @@ class SecurityCheckInterceptor extends HandlerInterceptorAdapter {
                 i = regexPaths.size() + 1
             }
         }
-        //System.out.println("${flag} - ${reqPath}")
+        log.debug('isRegPathExistsIn {} - {}', reqPath, flag)
 
         return flag;
     }

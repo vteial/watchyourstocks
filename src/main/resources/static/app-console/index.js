@@ -36,7 +36,7 @@ dependents.push('app.filters');
 dependents.push('app.directives');
 dependents.push('app.services');
 dependents.push('app.controllers');
-var app = angular.module('app', dependents), lodash = _;
+var app = angular.module('app', dependents), lodash = _, jquery = $;
 
 app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('generalHttpInterceptor');
