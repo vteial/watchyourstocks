@@ -1,4 +1,4 @@
-package io.wybis.wysbisanalytics;
+package io.wybis.watchyourstocks;
 
 public class WorkbenchJ {
 

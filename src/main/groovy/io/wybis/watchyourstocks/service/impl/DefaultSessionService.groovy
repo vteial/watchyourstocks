@@ -78,6 +78,12 @@ public class DefaultSessionService extends AbstractService implements
 
         props.sessionDto = session.getAttribute(SESSION_USER_KEY)
         props.sessionId = session.id
+//        props.activeProfiles = env.activeProfiles
+        if(env.activeProfiles.contains('dev')) {
+            props.rateMonitorTable = 'rateMonitorsDev'
+        } else {
+            props.rateMonitorTable = 'rateMonitors'
+        }
 
         return props;
     }

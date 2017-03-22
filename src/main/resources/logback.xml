@@ -28,7 +28,7 @@
 	</logger>
 
 	<logger name="io.wybis.watchyourstocks.web.interceptors.SecurityCheckInterceptor"
-			level="DEBUG" additivity="false">
+			level="INFO" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 

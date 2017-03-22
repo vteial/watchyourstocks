@@ -19,22 +19,22 @@ function sessionService($log, $http, $q, $rootScope, wydNotifyService, $firebase
     }
 
     service.properties = function () {
-        // var path = basePathS + '/properties';
-        //
-        // var deferred = $q.defer();
-        // $http.get(path).success(function (response) {
-        //     //$log.debug(response);
-        //     if (response.type === 0) {
-        //         $log.debug(response.data);
-        //         processProps(response.data);
-        //         $rootScope.$broadcast('session:properties', 'Session properties updated...');
-        //         deferred.resolve(response);
-        //     }
-        // }).error(function () {
-        //     deferred.reject("unable fetch properties...");
-        // });
-        //
-        // return deferred.promise;
+        var path = basePathS + '/properties';
+
+        var deferred = $q.defer();
+        $http.get(path).success(function (response) {
+            //$log.debug(response);
+            if (response.type === 0) {
+                $log.debug(response.data);
+                processProps(response.data);
+                $rootScope.$broadcast('session:properties', 'Session properties updated...');
+                deferred.resolve(response);
+            }
+        }).error(function () {
+            deferred.reject("unable fetch properties...");
+        });
+
+        return deferred.promise;
     };
 
     function addOrUpdateCacheY(propName, objectx) {
@@ -49,23 +49,20 @@ function sessionService($log, $http, $q, $rootScope, wydNotifyService, $firebase
         }
     }
 
-    // var rateMonitorsRef = null, rateMonitors = null;
-    //
-    // service.rateMonitorsRef = function() {
-    //     if(rateMonitorsRef == null) {
-    //         var ref = firebase.database().ref();
-    //         rateMonitorsRef = ref.child('rateMonitorsDev');
-    //     }
-    //     return rateMonitorsRef;
-    // };
-    //
-    // service.rateMonitors = function() {
-    //     if(rateMonitors == null) {
-    //         var ref = service.rateMonitorsRef();
-    //         rateMonitors = $firebaseArray(ref);
-    //     }
-    //     return rateMonitors;
-    // };
+    var rateMonitors = null;
+
+    service.rateMonitors = function() {
+        if(rateMonitors == null) {
+            var tableName = service.context.rateMonitorTable;
+            //tableName = 'rateMonitors';
+            if(tableName) {
+                var ref = firebase.database().ref();
+                ref = ref.child(tableName);
+                rateMonitors = $firebaseArray(ref);
+            }
+        }
+        return rateMonitors;
+    };
 
     return service;
 }

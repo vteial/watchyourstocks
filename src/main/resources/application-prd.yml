@@ -1,7 +1,4 @@
 
-rateMonitorService :
-  cron : 0 */5 4-11 * * MON-FRI
-
 #spring :
 #
 #  datasource :

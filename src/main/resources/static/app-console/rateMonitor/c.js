@@ -1,4 +1,4 @@
-function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, sessionService, rateMonitors, $http, $interval) {
+function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, sessionService, $http, $interval) {
     var cmpId = 'rateMonitorListController', cmpName = 'Rate Monitor';
     $log.debug(cmpId + '...');
     $rootScope.viewName = cmpName;
@@ -7,7 +7,13 @@ function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, s
     vm.uiState = {isReady: false};
     vm.intervalId = intervalId;
 
-    $scope.items = rateMonitors;
+    $scope.items = sessionService.rateMonitors();
+
+    $scope.$on('session:properties', function (event, data) {
+        $log.debug(cmpId + ' on ' + event.name + ' started...');
+        $scope.items = sessionService.rateMonitors();
+        $log.debug(cmpId + ' on ' + event.name + ' finished...');
+    });
 
     // vm.rateMonitorLabel = 'Start';
     //
@@ -31,6 +37,8 @@ function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, s
             $log.debug(response);
             if (response.type != 0) {
                 wydNotifyService.showError(response.message);
+            } else {
+                wydNotifyService.showInfo(response.message);
             }
         });
         $log.debug('sessions/rate-monitor-now call finished...');
@@ -56,7 +64,7 @@ function rateMonitorListController($log, $rootScope, $scope, wydNotifyService, s
 }
 appControllers.controller('rateMonitorListController', rateMonitorListController);
 
-function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyService, wydFocusService, sessionService, rateMonitors, $routeParams, $http, $location) {
+function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyService, wydFocusService, sessionService, $routeParams, $http, $location) {
     var cmpId = 'rateMonitorAddOrEditController', cmpName = 'Add/Edit Rate Monitor';
     $log.debug(cmpId + '...');
     $rootScope.viewName = cmpName;
@@ -70,7 +78,7 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
             return;
         }
         if (!_.isNumber(value)) {
-            value = value.split(',').join('')
+            value = value.split(',').join('');
             value = parseFloat(value);
         }
         vm.model.lowerValue = value;
@@ -82,7 +90,7 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
             return;
         }
         if (!_.isNumber(value)) {
-            value = value.split(',').join('')
+            value = value.split(',').join('');
             value = parseFloat(value);
         }
         vm.model.upperValue = value;
@@ -117,19 +125,25 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
         $log.debug(vm.model);
 
         vm.uiState.isBlocked = true;
+        vm.model.code = vm.model.code.toUpperCase();
+        if(!vm.model.name) {
+            vm.model.name = vm.model.code.toUpperCase();
+        }
         if (vm.model.id == 0) {
             var path = 'sessions/next-auto-number/rateMonitorId';
             $http.get(path).success(function (response) {
                 $log.debug(response);
 
-                vm.model.id = response.data.value;
+                vm.model.id = '' + response.data.value;
+                vm.model.value = 0;
                 var now = (new Date()).getTime();
+                vm.model.metTime = now;
                 vm.model.createTime = now;
                 vm.model.updateTime = now;
                 $log.info(vm.model);
 
-                var modelsRef = rateMonitors.$ref();
-                modelsRef.child('' + vm.model.id).set(vm.model).then(function () {
+                var modelsRef = sessionService.rateMonitors().$ref();
+                modelsRef.child(vm.model.id).set(vm.model).then(function () {
                     wydNotifyService.showSuccess(vm.model.code + ' successfully added...');
                     $location.path('/rate-monitors');
                 }).catch(function (error) {
@@ -141,8 +155,8 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
         } else {
             var now = (new Date()).getTime();
             vm.model.updateTime = now;
-            rateMonitors.$save(vm.model).then(function (ref) {
-                $log.debug(ref.key + ' == ' + vm.model.$id)
+            sessionService.rateMonitors().$save(vm.model).then(function (ref) {
+                $log.debug(ref.key + ' == ' + vm.model.$id);
                 wydNotifyService.showSuccess(vm.model.code + ' successfully updated...');
                 $location.path('/rate-monitors');
             }, function (error) {
@@ -159,7 +173,7 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
             type: 'warning',
             showCancelButton: true
         }).then(function () {
-            rateMonitors.$remove(model).then(function (ref) {
+                sessionService.rateMonitors().$remove(model).then(function (ref) {
                 wydNotifyService.showSuccess(model.code + ' successfully deleted...');
                 $location.path('/rate-monitors');
             });
@@ -170,7 +184,7 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
 
     function init() {
         if ($routeParams.id) {
-            vm.model = rateMonitors.$getRecord($routeParams.id);
+            vm.model = sessionService.rateMonitors().$getRecord($routeParams.id);
             vm.model.lowerValueS = vm.model.lowerValue + '';
             vm.model.upperValueS = vm.model.upperValue + '';
             $rootScope.viewName = 'Edit Rate Monitor';
@@ -178,7 +192,9 @@ function rateMonitorAddOrEditController($log, $rootScope, $scope, wydNotifyServi
             vm.uiState.isReady = true;
         } else {
             $rootScope.viewName = 'Add Rate Monitor';
-            vm.model = {id: 0, value: 0, status: 'no', metTime: null, branchId: 1, createBy: 1, updateBy: 1};
+            vm.model = {id: 0, lowerValue : 0, upperValue : 0, value: 0, status: 'no', metTime: null, branchId: 1, createBy: 1, updateBy: 1};
+            vm.model.lowerValueS = vm.model.lowerValue + '';
+            vm.model.upperValueS = vm.model.upperValue + '';
             wydFocusService('rateMonitorCode');
             vm.uiState.isReady = true;
         }

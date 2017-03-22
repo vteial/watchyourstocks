@@ -1,6 +1,7 @@
 <br/>
 
 <div class="row">
+
     <div class="col md-6">
         <div class="row">
             <div class="col md-8">
@@ -27,14 +28,53 @@
              <div class="col md-4">
                  <br/>
                  <button class="btn btn-success btn-empty btn-sm"
-                     ng-disabled="vm.isBlocked"
-                     ng-click="vm.saveIsWhiteLabeled()">
+                         ng-disabled="vm.isBlocked"
+                         ng-click="vm.saveIsWhiteLabeled()">
                      Save
                  </button>
              </div>
-         <div>
+         </div>
     </div>
     <div class="col md-6">
-        &nbsp;
+        <div class="row">
+            <div class="col md-8">
+                <label>Text to Encrypt</label>
+                <input class="form-control" type="text" ng-model="vm.textToEncrypt">
+            </div>
+            <div class="col md-4">
+                <br/>
+                <button class="btn btn-success btn-empty btn-sm"
+                        ng-disabled="vm.isBlocked"
+                        ng-click="vm.encrypt()">
+                    Encrypt
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col md-12">
+                Encrypted Text : <strong>{{vm.encryptedText}}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col md-8">
+                <label>Text to Decrypt</label>
+                <input class="form-control" type="text" ng-model="vm.textToDecrypt">
+            </div>
+            <div class="col md-4">
+                <br/>
+                <button class="btn btn-success btn-empty btn-sm"
+                        ng-disabled="vm.isBlocked"
+                        ng-click="vm.decrypt()">
+                    Decrypt
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col md-12">
+                Decrypted Text : <strong>{{vm.decryptedText}}</strong>
+            </div>
+        </div>
     </div>
+
 </div>
+

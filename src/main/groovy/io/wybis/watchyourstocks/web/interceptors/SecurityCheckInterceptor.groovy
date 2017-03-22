@@ -28,6 +28,8 @@ class SecurityCheckInterceptor extends HandlerInterceptorAdapter {
         pubExactPaths['/sessions/reset-password-request'] = true
         pubExactPaths['/sessions/reset-password-confirm'] = true
         pubExactPaths['/sessions/reset-password'] = true
+//        pubExactPaths['/sessions/encrypt'] = true
+//        pubExactPaths['/sessions/decrypt'] = true
 
 //      pubRegexPaths << '^/sessions/sign-up-confirm/\\d+/.*'
 

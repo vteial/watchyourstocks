@@ -40,6 +40,7 @@
                wyd-focus-on="rateMonitorLowerValue"
                ng-change="vm.onLowerValue()"
                ng-model="vm.model.lowerValueS"
+               ng-required="true"
                input-mask="'decimal'"
                mask-option="{ allowMinus : false, 'groupSeparator' : ',', 'autoGroup': true, 'digits' : 2 }"/>
         <div ng-messages="form0.rateMonitorLowerValue.$error" role="alert">
@@ -54,6 +55,7 @@
                wyd-focus-on="rateMonitorUpperValue"
                ng-change="vm.onUpperValue()"
                ng-model="vm.model.upperValueS"
+               ng-required="true"
                input-mask="'decimal'"
                mask-option="{ allowMinus : false, 'groupSeparator' : ',', 'autoGroup': true, 'digits' : 2 }"/>
         <div ng-messages="form0.rateMonitorUpperValue.$error" role="alert">

@@ -1,7 +1,16 @@
 ---
 applications:
-- name: cf-spring
+- name: watchyourstocks
   memory: 1G
   instances: 1
-  random-route: true
-  path: build/libs/spring-music.jar
+#  random-route: true
+  path: build/libs/watchyourstocks.war.original
+
+services:
+- sendgrid
+
+#  - dev-database
+#  	env:
+#  		SPRING_PROFILES_ACTIVE: cloud
+#  		DEBUG: "true"
+#  		debug: "true"

@@ -1,5 +1,6 @@
 package io.wybis.watchyourstocks
 
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
 import org.springframework.boot.SpringApplication
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate
 import java.text.DecimalFormat
 
 @SpringBootApplication
+@EnableEncryptableProperties
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
@@ -34,7 +36,7 @@ public class Application extends SpringBootServletInitializer {
     }
 
     @Bean
-    ClassPathResource jsonFirbaseCpr() {
+    ClassPathResource jsonFirebaseCpr() {
         ClassPathResource cpr = new ClassPathResource("data/stock-monster-firebase.json");
         return cpr;
     }

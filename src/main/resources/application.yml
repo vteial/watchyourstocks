@@ -17,14 +17,15 @@ server :
   #context-path : /watchyourstocks
   #sessionTimeout : 30
 
-#management :
-#  port : 9022
-#  context-path : /_admin
-#  security :
-#    role : SUPERUSER
-#    user :
-#      name : admin
-#      password : secret
+management :
+  #port : 9022
+  context-path : /_admin
+  security :
+    enabled : false
+    role : SUPERUSER
+    user :
+      name : admin
+      password : secret
 
 spring :
   application :
@@ -59,16 +60,6 @@ spring :
     database : H2
     #show-sql : true
 
-  mail :
-    host : smtp.live.com
-    port : 587
-    username : vteial@hotmail.com
-    password : <password>
-    #smtp.timeout : 3000
-    #smtp.connectiontimeout : 3000
-    #smtp.auth : true
-    #smtp.starttls.enable : true
-
   mobile :
     devicedelegatingviewresolver :
       enabled : true
@@ -86,3 +77,7 @@ spring :
     #suffix : .tpl
     #templateEncoding : UTF-8
     #template.viewNames :  # whitelist of view names that can be resolved
+
+jasypt :
+  encryptor :
+    password : wybis

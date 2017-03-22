@@ -1,3 +1,25 @@
+appFilters.filter('orderObjectBy', function(){
+    return function(input, attribute) {
+        if (!angular.isObject(input)) return input;
+
+        var array = [];
+        for(var objectKey in input) {
+            array.push(input[objectKey]);
+        }
+
+        function compare(a,b) {
+            if (a[attribute] < b[attribute])
+                return -1;
+            if (a[attribute] > b[attribute])
+                return 1;
+            return 0;
+        }
+
+        array.sort(compare);
+        return array;
+    }
+});
+
 function rootController($log, $rootScope, $scope, sessionService, $window) {
     var cmpId = 'rootController', cmpName = '-';
     $log.debug(cmpId + ' started...');
@@ -12,10 +34,20 @@ function rootController($log, $rootScope, $scope, sessionService, $window) {
 
     $scope.$on('session:properties', function (event, data) {
         $log.debug(cmpId + ' on ' + event.name + ' started...');
-        swetAlerat('Invalid Session!',
-            'Your session is invalid. Please sign in and continue.',
-            'question');
         $log.debug(cmpId + ' on ' + event.name + ' finished...');
+    });
+
+    $rootScope.$on('session:invalid', function (event, data) {
+        $log.debug('session invalid started...');
+        sweetAlert({
+            title: 'Invalid Session!',
+            text: "Your session is invalid. Please sign in and continue.",
+            type: 'error'
+        }).then(function () {
+            $log.info('redirecting to sign in...');
+            $window.location = 'index.html#/sign-in';
+        });
+        $log.debug('session invalid finished...');
     });
 
     $scope.historyBack = function () {

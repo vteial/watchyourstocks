@@ -6,7 +6,10 @@ import io.wybis.watchyourstocks.dto.SessionDto
 import io.wybis.watchyourstocks.model.Branch
 import io.wybis.watchyourstocks.repository.BranchRepository
 import io.wybis.watchyourstocks.service.*
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ClassPathResource
+import org.springframework.mail.SimpleMailMessage
+import org.springframework.mail.javamail.JavaMailSenderImpl
 import org.springframework.stereotype.Service
 
 import javax.annotation.PostConstruct
@@ -16,6 +19,26 @@ import javax.annotation.Resource
 @Slf4j
 public class DefaultAppService extends AbstractService implements
         AppService {
+
+    static void main(def args) {
+        println 'started...'
+
+        JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
+        mailSenderImpl.setHost('smtp.sendgrid.net');
+        mailSenderImpl.setPort(587);
+        mailSenderImpl.setUsername('hBsrFC8YkB1i6741');
+        mailSenderImpl.setPassword('WgMNhjmCqC');
+
+        SimpleMailMessage emailMessage = new SimpleMailMessage();
+        emailMessage.setFrom('no-reply@watchyourstocks.wybis.com');
+        emailMessage.setTo('vteial@gmail.com');
+        emailMessage.setSubject('WatchYourStocks - Test Mail');
+        emailMessage.setText('This is test mail. Please, ignore it.');
+
+        mailSenderImpl.send(emailMessage)
+
+        println 'finished...'
+    }
 
     @Resource
     BranchRepository branchRepository

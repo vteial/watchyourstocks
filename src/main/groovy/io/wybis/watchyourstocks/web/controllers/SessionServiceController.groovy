@@ -50,8 +50,8 @@ public class SessionServiceController extends AbstractController {
     }
 
     @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
-    public @ResponseBody
-    ResponseDto signin(HttpSession session,
+    @ResponseBody
+    ResponseDto signIn(HttpSession session,
                       @RequestBody final UserDto userDto) {
         ResponseDto responseDto = new ResponseDto();
 
@@ -82,7 +82,7 @@ public class SessionServiceController extends AbstractController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/sign-out", method = RequestMethod.GET)
-    public @ResponseBody
+    @ResponseBody
     ResponseDto signOut(HttpSession session) {
         ResponseDto responseDto = new ResponseDto();
 
@@ -96,7 +96,7 @@ public class SessionServiceController extends AbstractController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = '/next-auto-number/{id}', method = RequestMethod.GET)
-    public @ResponseBody
+    @ResponseBody
     ResponseDto nextAutoNumber(@PathVariable('id') final String id, HttpSession session) {
         ResponseDto responseDto = new ResponseDto();
 
@@ -116,11 +116,11 @@ public class SessionServiceController extends AbstractController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/rate-monitor-now", method = RequestMethod.GET)
-    public @ResponseBody
+    @ResponseBody
     ResponseDto rateMonitorNow(HttpSession session) {
         ResponseDto responseDto = new ResponseDto();
 
-        if(rateMonitorService.isMonitorRatesRunning()) {
+        if(rateMonitorService.isRunning()) {
             responseDto.setType(ResponseDto.WARNING);
             responseDto.setMessage("Rate monitor already running...");
 

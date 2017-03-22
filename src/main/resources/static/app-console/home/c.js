@@ -21,7 +21,6 @@ function settingsController($log, $rootScope, $scope, sessionService, wydNotifyS
     vm.isReady = false;
     vm.isBlocked = false;
 
-/*
     vm.saveApplicationName = function () {
         if (sessionService.context.applicationName == vm.applicationName) {
             wydNotifyService.showInfo('There is no change. Nothing to save.');
@@ -31,7 +30,7 @@ function settingsController($log, $rootScope, $scope, sessionService, wydNotifyS
         var reqModel = {id: 'applicationName', value: vm.applicationName};
 
         vm.isBlocked = true;
-        var path = '/console/app-configs/app-config'
+        var path = '/console/app-configs/app-config';
         $http.post(path, reqModel).success(function (response) {
             $log.debug(response);
             if (response.type === 0) {
@@ -54,12 +53,44 @@ function settingsController($log, $rootScope, $scope, sessionService, wydNotifyS
         var reqModel = {id: 'isWhiteLabeled', value: vm.isWhiteLabeled};
 
         vm.isBlocked = true;
-        var path = '/console/app-configs/app-config'
+        var path = '/console/app-configs/app-config';
         $http.post(path, reqModel).success(function (response) {
             $log.debug(response);
             if (response.type === 0) {
                 sessionService.context.isWhiteLabeled = vm.isWhiteLabeled;
                 wydNotifyService.showSuccess('Is White Labeled saved successfully...');
+            }
+            else {
+                wydNotifyService.showError(response.message);
+            }
+            vm.isBlocked = false;
+        });
+    };
+
+    vm.encrypt = function() {
+        vm.encryptedText = '';
+        vm.isBlocked = true;
+        var path = 'sessions/encrypt?text=' + vm.textToEncrypt;
+        $http.get(path).success(function (response) {
+            $log.debug(response);
+            if (response.type === 0) {
+                vm.encryptedText = response.data;
+            }
+            else {
+                wydNotifyService.showError(response.message);
+            }
+            vm.isBlocked = false;
+        });
+    };
+
+    vm.decrypt = function() {
+        vm.decryptedText = '';
+        vm.isBlocked = true;
+        var path = 'sessions/decrypt?text=' + vm.textToDecrypt;
+        $http.get(path).success(function (response) {
+            $log.debug(response);
+            if (response.type === 0) {
+                vm.decryptedText = response.data;
             }
             else {
                 wydNotifyService.showError(response.message);
@@ -76,6 +107,11 @@ function settingsController($log, $rootScope, $scope, sessionService, wydNotifyS
         vm.applicationName = sessionService.context.applicationName;
         vm.isWhiteLabeled = sessionService.context.isWhiteLabeled;
 
+        vm.textToEncrypt = '';
+        vm.encryptedText = '';
+        vm.textToDecrypt = '';
+        vm.decryptedText = '';
+
         vm.isReady = true;
     }
 
@@ -84,7 +120,7 @@ function settingsController($log, $rootScope, $scope, sessionService, wydNotifyS
     } else {
         sessionService.properties();
     }
-*/
+
     $log.debug(cmpId + ' started...');
 }
 appControllers.controller('settingsController', settingsController);

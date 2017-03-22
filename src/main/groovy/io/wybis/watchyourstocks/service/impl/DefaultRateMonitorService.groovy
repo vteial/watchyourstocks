@@ -8,6 +8,7 @@ import io.wybis.watchyourstocks.comp.RateFetcher
 import io.wybis.watchyourstocks.dto.RateMonitor
 import io.wybis.watchyourstocks.model.ProductRate
 import io.wybis.watchyourstocks.service.RateMonitorService
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ClassPathResource
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
@@ -20,12 +21,18 @@ import javax.annotation.Resource
 class DefaultRateMonitorService extends AbstractService implements RateMonitorService {
 
     @Resource
-    ClassPathResource jsonFirbaseCpr
+    ClassPathResource jsonFirebaseCpr
 
     @Resource(name = 'yahoo')
     RateFetcher rateFetcher
 
-    boolean flag
+    boolean running
+
+    @Value('${rateMonitorService.monitorStatus}')
+    String monitorStatus;
+
+    @Value('${rateMonitorService.cron}')
+    String cronExpression;
 
     @PostConstruct
     @Override
@@ -33,8 +40,13 @@ class DefaultRateMonitorService extends AbstractService implements RateMonitorSe
         //log.debug('----------------------------------------------------------------------------')
         log.debug('rateMonitor initialization started...')
 
+        log.debug('rateMonitor status : {}', this.monitorStatus)
+        if(!this.monitorStatus) {
+            this.monitorStatus = MONITOR_STATUS_ON
+        }
+        log.debug('rateMonitor status : {}', this.monitorStatus)
         FirebaseOptions options = new FirebaseOptions.Builder()
-                .setServiceAccount(jsonFirbaseCpr.inputStream)
+                .setServiceAccount(jsonFirebaseCpr.inputStream)
                 .setDatabaseUrl('https://stock-monster.firebaseio.com/')
                 .build()
         FirebaseApp app = null
@@ -54,19 +66,49 @@ class DefaultRateMonitorService extends AbstractService implements RateMonitorSe
     }
 
     @Override
-    boolean isMonitorRatesRunning() {
-        return flag
+    boolean isRunning() {
+        return running
+    }
+
+    @Override
+    String getMonitorStatus() {
+        return monitorStatus
+    }
+
+    @Override
+    void setMonitorStatus(String monitorStatus) {
+        this.monitorStatus = monitorStatus
     }
 
     @Scheduled(cron = '${rateMonitorService.cron}')
     @Override
+    void monitorRatesJob() {
+        try {
+            if(this.monitorStatus == MONITOR_STATUS_OFF) {
+                log.info('rate monitor skipped due to monitor status flag is in off state')
+                log.info('rate monitor started')
+            } else {
+                this.monitorRates()
+            }
+        } catch (Throwable t) {
+            this.running = false
+            log.error('rate monitor job failed', t)
+        }
+    }
+
+    @Override
     void monitorRates() {
         log.info('rate monitor started')
 
-        this.flag = true
+        this.running = true
+
+        String rateMonitorTable = 'rateMonitors'
+        if(env.activeProfiles.contains('dev')) {
+            rateMonitorTable = 'rateMonitorsDev'
+        }
 
         DatabaseReference ref = FirebaseDatabase.getInstance()
-                .getReference("rateMonitors");
+                .getReference(rateMonitorTable);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -98,15 +140,16 @@ class DefaultRateMonitorService extends AbstractService implements RateMonitorSe
                     tref.updateChildren(values)
                     log.debug('RateMonitor : {}', values)
                 }
-                DefaultRateMonitorService.this.flag = false
+                DefaultRateMonitorService.this.running = false
 
                 log.info('rate monitor finished')
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                DefaultRateMonitorService.this.flag = false
+                DefaultRateMonitorService.this.running = false
                 log.error('firebase error : {}', databaseError)
+                log.info('rate monitor finished')
             }
         });
     }
