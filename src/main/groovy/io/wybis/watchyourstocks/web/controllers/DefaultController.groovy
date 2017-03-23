@@ -34,12 +34,16 @@ public class DefaultController extends AbstractController {
         ResponseDto responseDto = new ResponseDto()
         try {
             SimpleMailMessage message = new SimpleMailMessage()
-            message.with {
-                from = 'no-reply@watchyourstocks.wybis.com'
-                to = 'vteial@gmail.com'
-                subject = 'watchyourstocks - test mail'
-                text = 'This is test please ignore it.'
+            if(this.isProfileIsActive('dev')) {
+                message.from = 'vteial@hotmail.com'
+                message.to = 'vteial@gmail.com'
+            } else {
+                message.from = 'vteial@gmail.com'
+                message.to = 'vteial@hotmail.com'
             }
+            message.subject = 'watchyourstocks - test mail'
+            message.text = 'This is test please ignore it.'
+
             mailSender.send(message)
             responseDto.message = 'test mail successfully sent...'
         } catch (Throwable t) {

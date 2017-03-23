@@ -24,14 +24,20 @@ public class DefaultAppService extends AbstractService implements
         println 'started...'
 
         JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
-        mailSenderImpl.setHost('smtp.sendgrid.net');
-        mailSenderImpl.setPort(587);
-        mailSenderImpl.setUsername('hBsrFC8YkB1i6741');
-        mailSenderImpl.setPassword('WgMNhjmCqC');
+
+//        mailSenderImpl.setHost('smtp.sendgrid.net');
+//        mailSenderImpl.setPort(587);
+//        mailSenderImpl.setUsername('hBsrFC8YkB1i6741');
+//        mailSenderImpl.setPassword('WgMNhjmCqC');
+
+        mailSenderImpl.setHost('smtp-pulse.com');
+        mailSenderImpl.setPort(2525);
+        mailSenderImpl.setUsername('vteial@gmail.com');
+        mailSenderImpl.setPassword('pdcsGDPk9M');
 
         SimpleMailMessage emailMessage = new SimpleMailMessage();
-        emailMessage.setFrom('no-reply@watchyourstocks.wybis.com');
-        emailMessage.setTo('vteial@gmail.com');
+        emailMessage.setFrom('vteial@gmail.com');
+        emailMessage.setTo('vteial@hotmail.com');
         emailMessage.setSubject('WatchYourStocks - Test Mail');
         emailMessage.setText('This is test mail. Please, ignore it.');
 

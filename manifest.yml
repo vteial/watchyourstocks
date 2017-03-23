@@ -6,8 +6,8 @@ applications:
 #  random-route: true
   path: build/libs/watchyourstocks.war.original
 
-services:
-- sendgrid
+#services:
+#- sendgrid
 
 #  - dev-database
 #  	env:

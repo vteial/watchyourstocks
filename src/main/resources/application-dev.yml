@@ -5,24 +5,18 @@ spring :
 #    url : jdbc:h2:tcp://localhost/~/app-home/wys/h2
 
   mail :
-    host : smtp.sendgrid.net
+    host : smtp.live.com
     port : 587
-    username : hBsrFC8YkB1i6741
-    password : WgMNhjmCqC
-
-#  mail :
-#    host : smtp.live.com
-#    port : 587
-#    username : vteial@hotmail.com
-#    password : ENC(2FPggS0finiIab+OavmemWz7CYwK/G6x)
-#    properties :
-#      mail :
-#        smtp:
-#          auth : true
-#          starttls :
-#            enable : true
-#            required : true
-#        socketFactory :
-#          port : 587
-#          class : javax.net.ssl.SSLSocketFactory
-#          fallback : false
+    username : vteial@hotmail.com
+    password : ENC(2FPggS0finiIab+OavmemWz7CYwK/G6x)
+    properties :
+      mail :
+        smtp:
+          auth : true
+          starttls :
+            enable : true
+            required : true
+        socketFactory :
+          port : 587
+          class : javax.net.ssl.SSLSocketFactory
+          fallback : false

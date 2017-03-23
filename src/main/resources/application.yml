@@ -1,6 +1,6 @@
 
 rateMonitorService :
-  cron : 0 */5 9-16 * * MON-FRI
+  cron : 0 */5 3-11 * * MON-FRI
 
 
 info :
@@ -59,6 +59,12 @@ spring :
       ddl-auto : create-drop
     database : H2
     #show-sql : true
+
+#  mail :
+#    host : smtp.sendgrid.net
+#    port : 587
+#    username : hBsrFC8YkB1i6741
+#    password : WgMNhjmCqC
 
   mobile :
     devicedelegatingviewresolver :

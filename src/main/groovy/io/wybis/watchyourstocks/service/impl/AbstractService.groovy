@@ -11,7 +11,7 @@ abstract class AbstractService {
     Environment env;
 
     @Resource
-    protected AutoNumberService autoNumberService;
+    AutoNumberService autoNumberService;
 
     protected boolean isProfileIsActive(String profileId) {
 
