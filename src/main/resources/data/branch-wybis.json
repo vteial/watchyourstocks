@@ -26,5 +26,483 @@
       "firstName": "Saraswathi",
       "roleId": "teller"
     }
+  ],
+  "products": [
+    {
+      "type": "product",
+      "code": "",
+      "name": "Alembic Pharma",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "All Cargo",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Amaraja Batteries",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Apollo Hospitals",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Aries",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Ashok Leyland",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Atlas Cycle",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Bajaj Hindustan",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Bannari Amman Sugars",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Bata India",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Bharat Forge",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Bharti Airtel",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "BHEL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Biocon",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Blue Star",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "BPCL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Butterfly",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Cadila Health Care",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Carborundum Universal",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Century Ply",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Chennai Petroleum",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "CIPLA",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "COAL India",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Crompton Greeves",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "DR REDDY",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Engineers India",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Fedders Lloyds",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Fortis HealthCare",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "GAIL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Glenmark",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "GMR",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Grasim Industries",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Great Eastern Shipping",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "GSPL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Hero Motors",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Hindustan Motors",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Hindustan Unilever",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Hitachi Home Appl",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "India Cements",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "IOC",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "IVRCL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Kansai Nerolac",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Kwality",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "L & T",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Llyod Electic",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Marksans Pharma",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Mothersonsumi",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "MTNL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "NALCO",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "NITIN FIRE",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "NTPC",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Oil India",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "ONGC",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Petronet",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Phoenix Mills",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Power Finance",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Prism Cements",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Reliance Infra",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "RICO Auto",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "SAIL",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "SCI",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Sintex",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "TATA Coffee",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "TATA Motors",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "TATA Power",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "TATA Steel",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "Time Technoplast",
+      "base_unit": 1,
+      "denominator": 1
+    },
+    {
+      "type": "product",
+      "code": "",
+      "name": "TVS Motors",
+      "base_unit": 1,
+      "denominator": 1
+    }
   ]
 }
