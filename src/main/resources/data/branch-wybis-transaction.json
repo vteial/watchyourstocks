@@ -5714,6 +5714,768 @@
           "rate": "638.5"
         }
       ]
+    },
+    {
+      "category": "",
+      "date": "01/11/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "53",
+          "rate": "309"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "1250",
+          "rate": "12.7"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "60",
+          "rate": "91"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/12/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "47",
+          "rate": "311"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "47",
+          "rate": "313"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "484.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "10",
+          "rate": "487.6"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "484.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "30",
+          "rate": "257"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "30",
+          "rate": "259.55"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/13/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "477"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "20",
+          "rate": "314.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "20",
+          "rate": "316.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "30",
+          "rate": "255"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "150",
+          "rate": "62.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "30",
+          "rate": "199"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/16/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "4",
+          "rate": "1175.4"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "30",
+          "rate": "205"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "4",
+          "rate": "1201"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "28.5"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/17/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "28"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "150",
+          "rate": "61.5"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/18/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "40",
+          "rate": "133"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/19/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "20",
+          "rate": "647.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "60",
+          "rate": "90.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "60",
+          "rate": "92"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "20",
+          "rate": "506"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "20",
+          "rate": "518.6"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "22",
+          "rate": "200.1"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/20/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "60",
+          "rate": "88.8"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "40",
+          "rate": "129.8"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "22",
+          "rate": "196"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "29.7"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "1250",
+          "rate": "12.65"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "1250",
+          "rate": "12.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "20",
+          "rate": "513.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "29.45"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/23/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "1250",
+          "rate": "12.7"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "1250",
+          "rate": "12.85"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/24/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "1250",
+          "rate": "12.65"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "1250",
+          "rate": "12.85"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "29.8"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "30.5"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/25/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "4",
+          "rate": "1390"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "1250",
+          "rate": "12.65"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "1250",
+          "rate": "12.8"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "30.3"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "31"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "30.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "75",
+          "rate": "94.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "75",
+          "rate": "96.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "4",
+          "rate": "1424"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/27/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "20",
+          "rate": "898.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "47",
+          "rate": "318.7"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "483"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "10",
+          "rate": "481"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "30.85"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "31"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "30",
+          "rate": "533"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "20",
+          "rate": "527.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "1250",
+          "rate": "12.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "1250",
+          "rate": "13.1"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "22",
+          "rate": "204.8"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "22",
+          "rate": "206"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/30/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "15",
+          "rate": "389.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "15",
+          "rate": "395.05"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "31.5"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "31.6"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "917"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "10",
+          "rate": "916"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "40",
+          "rate": "87"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "01/31/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "625",
+          "rate": "12.7"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "625",
+          "rate": "12.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "480"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "10",
+          "rate": "485"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "22",
+          "rate": "201"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "22",
+          "rate": "204.55"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "30.75"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "31.3"
+        }
+      ]
+    },
+    {
+      "category": "",
+      "date": "02/01/17",
+      "tran": [
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "10",
+          "rate": "488.65"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "10",
+          "rate": "491.15"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "10",
+          "rate": "486"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "260",
+          "rate": "30.9"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "260",
+          "rate": "31.3"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "625",
+          "rate": "12.75"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "625",
+          "rate": "12.85"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "625",
+          "rate": "12.75"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "625",
+          "rate": "12.85"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "625",
+          "rate": "12.75"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "625",
+          "rate": "12.85"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "47",
+          "rate": "312.8"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "47",
+          "rate": "311"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Buy",
+          "unit": "22",
+          "rate": "200"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "22",
+          "rate": "205"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "40",
+          "rate": "91"
+        },
+        {
+          "category": "",
+          "product-code": "",
+          "type": "Sell",
+          "unit": "150",
+          "rate": "59.1"
+        }
+      ]
     }
   ]
 }
